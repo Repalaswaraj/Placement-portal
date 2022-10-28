@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image" href="icon.ico">
+	<title>Registration Form</title>
+	<script src="jquery.js"></script>
+	<style>
+		body{
+			font-family: "comic sans ms", sans serif;
+			background-color: moccasin;
+			margin: 0;
+			
+		}
+		
+		h2{
+			background-color: chocolate;
+			color: white;
+			padding: 10px;
+			text-align: center;
+			width: 98.5%;
+			display: inline-block;
+			
+		}
+		td{
+			padding: 7px;
+		
+		}
+		#educational-qualification td{
+			text-align: center;
+		}
+		.edu pre{
+			font-size: large;
+		}
+		input{
+			height: 30px;
+			border-radius: 10px;
+			border: none;
+			
+		}
+		
+		
+		input:focus{
+			outline: none;
+			border: 1px solid forestgreen;
+		}
+
+		.button1{
+			background-color: forestgreen;
+			color:#fff;
+			border: none;
+			padding: 5px;
+			text-decoration: none;
+			border-radius: 10px;
+		}
+		
+		#flip {
+			padding: 10px;
+			text-align: center;
+			background-color: chocolate;
+			border: solid 1px #c3c3c3;
+			color: white;
+			width: 98.6%;
+		}
+
+		#panel {
+			padding: 0px;
+			display: none;
+			text-align: center;
+			background-color: moccasin;
+			color: black;
+			width: 100%;
+		}
+
+		#panel2 {
+			padding: 50px;
+			display: none;
+			text-align: center;
+			background-color: moccasin;
+			color: black;
+		}
+
+	</style>
+	<script> 
+		$(document).ready(function(){
+		  $("#flip").click(function(){
+			$("#panel").slideToggle("slow");
+		  });
+		});
+
+		$(document).ready(function(){
+		  $(".button1").click(function(){
+			window.alert("Successfully Submitted");
+			window.alert("Login Details will be shared with you through email.")
+			
+		  });
+		});
+
+		$(document).ready(function(){
+		  $(".no").click(function(){
+			$("#panel2").slideDown("slow");
+			
+		  });
+		});
+		$(document).ready(function(){
+		  $(".yes").click(function(){
+			$("#panel2").slideUp();
+			
+		  });
+		});
+		</script>
+</head>
+<body>
+	<h1 align="center">Registration Form</h1>
+	<form>
+		<div id="personal-details">
+		<h2 align="center">Personal Details</h2>
+			<table width="100%">
+				<tr>
+					<td>First Name</td>
+					<td>
+						<input type="text" placeholder="First Name"  size="25">
+					</td>
+					
+					<td>Last Name</td>
+					<td>
+						<input type="text" placeholder="Last Name" size="25">
+					</td>
+				</tr>
+				<tr>
+					<td>Father's Name</td>
+					<td>
+						<input type="text" placeholder="Father's Name" size="25">
+					</td>
+					<td>Mother's Name</td>
+					<td>
+						<input type="text"  placeholder="Mother's Name" size="25">
+					</td>
+				</tr>
+				<tr>
+					<td>Date of Birth</td>
+					<td>
+						<input type="date">
+					</td>
+					<td>Place of Birth</td>
+					<td>
+						<input type="text"  placeholder="Place of Birth" size="25">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">Select Gender</td>
+					<td>
+						<input type="radio" name="gender" value="male" >Male
+					</td>
+					<td>
+						<input type="radio" name="gender" value="female" >Female
+					</td>
+				</tr>
+				<tr>
+					<td>Contact Details</td>
+				</tr>
+				<tr>
+					<td>Mobile Number</td>
+					<td>
+						<input type="tel"  placeholder="Mobile number" size="25" maxlength="10">
+					</td>
+					<td>Email Id</td>
+					<td>
+						<input type="text"  placeholder="your id@gmail.com" size="25">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="1">Language Known</td>
+					<td>
+						<input type="checkbox" value="telugu" >Telugu
+					</td>
+					<td>
+						<input type="checkbox" value="hindi" >Hindi
+					</td>
+					<td>
+						<input type="checkbox" value="english" >English
+					</td>
+					
+				</tr>
+				<tr>
+					<td colspan="2">Your Mother Tongue</td>
+					<td>
+						<select>
+							<option >English</option>
+							<option >Telugu</option>
+							<option >Hindi</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Aadhar Number</td>
+					<td>
+						<input type="" placeholder="Aadhar Number" size="25">
+					</td>
+					<td>Pan Card Number</td>
+					<td>
+						<input type=" " placeholder="Pan Card Number" size="25">
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<!-- Address Details -->
+		<div id="address-details">
+		<h2>Address Details</h2>
+			<h3>A) Present Address</h3>
+			<table width="100%">
+				
+				<tr>
+					<td>Nationality</td>
+					<td>
+						<input type="radio"  value="indian" >Indian
+					</td>
+					<td>
+						<input type="radio"  value="other">Other
+					</td>
+				</tr>
+				<tr>
+					<td>State</td>
+					<td>
+						<input type="text" size="25" >
+					</td>
+				</tr>
+				<tr>
+					<td>District</td>
+					<td>
+						<select>
+							<option>Manchiryala</option>
+							<option>Nizamabad</option>
+							<option>Kamareddi</option>
+							<option>Nirmal</option>
+							<option>Adilabad</option>
+							<option>Komaram Bheem</option>
+							<option >Suryapet</option>
+							<option>karimnagar</option>
+							<option>Siddhipet</option>
+							<option>Khammam</option>
+							<option>Rangareddy</option>
+							<option>Warangal</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Police Station</td>
+					<td>
+						<select>
+							<option>Manchiryala</option>
+							<option>Nizamabad</option>
+							<option>Kamareddi</option>
+							<option>Nirmal</option>
+							<option>Adilabad</option>
+							<option>Komaram Bheem</option>
+							<option >Suryapet</option>
+							<option>karimnagar</option>
+							<option>Siddhipet</option>
+							<option>Khammam</option>
+							<option>Rangareddy</option>
+							<option>Warangal</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Town</td>
+					<td>
+						<input type="text" size="25" >
+					</td>
+					<td> House No / Road:</td>
+					<td>
+						<input type="text" size="25" >
+					</td>
+				</tr>
+				<tr>
+					<td>Post Office</td>
+					<td>
+						<input type="text" size="25" > 
+					</td>
+					<td>Pin Code</td>
+					<td>
+						<input type="phone" size="25" >
+					</td>
+				</tr>
+			</table>
+			<br><br>
+		</div>
+		
+		<div>
+			<h3>B) Permanent Address</h3>
+			<table width="100%">
+				
+				<tr>
+					<td colspan="2">Same as Present Address</td>
+					<td>
+						<input type="radio" name="Address" value="Yes" class="yes"  > Yes
+					</td>
+					<td>
+						<input type="radio" name="Address" value="No"  class="no"> No
+					</td>
+				</tr>
+			</table>
+				<div id="panel2">
+					<table width="100%">
+				    <h2>Permanent Address</h2>
+					<tr>
+						<td>Nationality</td>
+						<td>
+							<input type="radio" name="gender" value="indian">Indian
+						</td>
+						<td>
+							<input type="radio" name="gender" value="other">Other
+						</td>
+					</tr>
+					<tr>
+						<td>State</td>
+						<td>
+							<input type="text" size="25">
+						</td>
+					</tr>
+					<tr>
+						<td>District</td>
+						<td>
+							<select>
+								<option>Manchiryala</option>
+								<option>Nizamabad</option>
+								<option>Kamareddi</option>
+								<option>Nirmal</option>
+								<option>Adilabad</option>
+								<option>Komaram Bheem</option>
+								<option>Suryapet</option>
+								<option>karimnagar</option>
+								<option>Siddhipet</option>
+								<option>Khammam</option>
+								<option>Rangareddy</option>
+								<option>Warangal</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Police Station</td>
+						<td>
+							<select>
+								<option>Manchiryala</option>
+								<option>Nizamabad</option>
+								<option>Kamareddi</option>
+								<option>Nirmal</option>
+								<option>Adilabad</option>
+								<option>Komaram Bheem</option>
+								<option>Suryapet</option>
+								<option>karimnagar</option>
+								<option>Siddhipet</option>
+								<option>Khammam</option>
+								<option>Rangareddy</option>
+								<option>Warangal</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Town</td>
+						<td>
+							<input type="text" size="25">
+						</td>
+						<td> House No / Road:</td>
+						<td>
+							<input type="text" size="25">
+						</td>
+					</tr>
+					<tr>
+						<td>Post Office</td>
+						<td>
+							<input type="text" size="25">
+						</td>
+						<td>Pin Code</td>
+						<td>
+							<input type="phone" size="25" maxlength="6">
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<!-- Educational Qualification -->
+		<div id="educational-qualification">
+		<h2> Educational Qualification</h2>
+			<table width="100%">
+				<tr>
+					
+					<td>Qualification</td>
+					<td>Branch</td>
+					<td>Institution / University</td>
+					<td>Year of Passing</td>
+					<td>Marks (%) / CGPA</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" size="18" >
+					</td>					
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" size="18" >
+					</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="text" size="18" >
+					</td>
+				</tr>
+			</table>
+			<br><br><hr>
+		</div>
+		<div class="edu">
+			<table>
+				<p><strong>Other Details of Graduation:</strong></p>
+				<tr>
+					<th>Institution</th>
+					<td>:</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th>Reg No:</th>
+					<td>:</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th>Stream</th>
+					<td>:</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th>Branch</th>
+					<td>:</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th>Domain</th>
+					<td>:</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th><pre> Any Reappear/
+Backlog</pre> </th>
+					<td>:</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<th>Resume/CV</th>
+					<td>:</td>
+					<td><input type="file"></td>
+				</tr>
+			</table>
+
+		</div>
+		<br><br><br>
+		
+		<!-- Work Experience -->
+		 
+        <div id="flip">Click to slide down the panel if you have any Work Experience</div>
+        <div id="panel">
+		<h3>Work Experience</h3>
+			<table width="100%">
+				<tr>
+					<td>S.No</td>
+					<td>Company Address</td>
+					<td>Work / Role</td>
+					<td>Duration (form)</td>
+					<td>Duration (to)</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="date" size="18">
+					</td>
+					<td>
+						<input type="date" size="18">
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="date" size="18">
+					</td>
+					<td>
+						<input type="date" size="18">
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="date" size="18">
+					</td>
+					<td>
+						<input type="date" size="18">
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="text" size="18">
+					</td>
+					<td>
+						<input type="date" size="18">
+					</td>
+					<td>
+						<input type="date" size="18">
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<!-- Other Details -->
+		<div id="other-details">
+		<h2>Other Details</h2>
+			<table width="100%">
+				<tr>
+					<td>Job Type</td>
+					<td>
+						<input type="radio" name="jobtype" value="permanent" >Permanent
+					</td>
+					<td>
+						<input type="radio" name="jobtype" value="contrect">Temporary
+					</td>
+					<td>
+						<input type="radio" name="jobtype" value="other">Other
+					</td>
+				</tr>
+				
+					<td>Preferred Job Location</td>
+					<td>
+						<select>
+							<option>Hyderabad</option>
+							<option >Banglore</option>
+							<option>Patna</option>
+							<option>Delhi</option>
+							<option>Vijayawada</option>
+						</select>
+					</td>
+					
+				</tr>
+				<tr>
+					<td colspan="1">Willing to relocate to Hyderabad</td>
+					<td>
+						<input type="radio" name="Hyderabad" value="yes">Yes
+					</td>
+					<td>
+						<input type="radio" name="Hyderabad" value="no">NO
+					</td>
+				</tr>
+			
+
+				
+			</table>
+		</div>
+		<br><br><br>
+
+		<div style="text-align: center;" >
+			<input type="checkbox" >All of the above mentioned information is true as per my knowledge.<br><br>
+			<a href="PlacementPortal.html" class="button1">Submit</a>
+			
+		</div>
+		
+	</form>
+	
+	
+</body>
+
+</html>

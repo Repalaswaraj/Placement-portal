@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> -->
+    <link rel="icon" type="image" href="icon.ico">
+    <title>STUDENT DASHBOARD</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="jquery.js"></script>
+    <style>
+        /* *{
+            font-family: Raleway;
+        } */
+        body{
+       
+            background-color: moccasin;
+        }
+        .logout{
+            float:right;
+
+        }
+        .logout a
+            {
+            margin: 0px;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 25px;
+            background-color: black;
+            color: white; 
+            width: 150px;
+            height: 25px;
+        
+        }
+        .logout a:hover{
+            background-color: green;
+        }
+        .container h1{
+            text-align: center;
+        }
+
+        .navbar{
+      
+            padding:25px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: orange;
+            /* background-color:rgb(17, 225, 176); */
+          
+          
+        }
+        .data{
+
+            padding:25px 25px;
+            font-size: large;
+        }
+        .data img{
+            float: right;
+            padding-right: 80px;
+        }
+        
+     
+        ul li{
+           display: inline-block;
+           padding: 15px;
+           border: 3px solid white;
+           border-radius: 10px;
+           background-color: black;
+           text-align: center;
+           margin-left: 5px;
+           
+        }
+
+        ul li a {
+            padding: 10px;
+            margin: 0px;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            color: white; 
+            width: 225px;
+            height: 25px;
+        
+        }
+        ul :hover{
+            background-color: green;
+        }
+
+        .container{
+            padding-top: 30px;
+            border: 3px solid black;
+            border-radius: 20px;
+            /* background-color: lightcyan; */
+            background-color: #fffde7fc;
+            width: 100%;
+            
+        }
+
+        .inner-container{
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            /* background-color: aqua; */
+            background-color: moccasin;
+        }
+
+        .inner-container p a{
+           text-decoration: none;
+           color: red;
+        }
+
+        .inner-container p a:hover{
+            font-size:larger;
+        }
+
+        #announcement, #drive, #summary{
+            background-color: orange;
+            font-size:larger;
+            margin-top: 20px;
+            text-align: center;
+            border:1px solid black;
+            width: 100%;
+        }
+
+        .containers{
+            border: 1px solid black;
+            overflow-y:scroll;
+            height:500px;
+        }
+        .tr {
+            margin: 0px;
+
+        } 
+        .xyz  {
+            margin: 0px;
+            padding: 20px;
+            background-color: aliceblue; 
+        }
+        .abc{
+            margin: 0px;
+            padding: 20px;
+            background-color: rgb(190, 200, 208);
+        }
+
+        #tr-color{
+            background-color: coral;
+        }
+        
+
+        .drive-table{
+            border: 1px solid black;
+        }
+
+        .drive-table td,th{
+            margin: 0px;
+            border: 1px solid black ;
+            padding: 20px;
+            width: 1440px;
+            text-align: center;
+        }
+        .containers table{
+            width: 100%;
+            border: 1px solid black;
+            border-collapse:collapse ;  
+
+        }
+
+        .drive-table tr:nth-child(even){
+            background-color: aliceblue;
+        } 
+        .drive-table tr:nth-child(odd){
+            background-color: rgb(190, 200, 208);
+        } 
+        .drive-table a:hover{
+            color: red;
+        }
+        .summary-box{
+            margin: 0px;
+            border: 1px solid black ;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // for logout
+        $(document).ready(function(){
+		      $(".logout").click(function(){
+            alert(" You are Logging Out!!");
+          })
+       });
+
+        // for drive registration
+          $(document).ready(function(){
+		  $(".register").click(function(){
+            if (confirm("Confirm to Register?") == true) {
+                alert("You are Successfully Registered!!");
+
+            } else {
+                alert("You cancelled!");
+            }
+
+		  });
+		});
+    </script>
+</head>
+<body>
+    <h1 style="text-align: center;">Dashboard</h1>
+        <div class="logout">
+            <a href="PlacementPortal.html"> <strong>Logout</strong></a>
+        </div><br><br><br><br>
+    <header>
+    <ul class="navbar">
+        <li><a href="Student Dash.html"><strong>Home</strong></a></li>
+        <li><a href="profile view.html"><strong>View Profile </strong></a></li>
+        <li><a href="#announcement"><strong>View Announcement</strong></a></li>
+        <li><a href="#drive"><strong> Upcoming Drives</strong></a></li>
+        <li><a href="#summary"><strong>Summary</strong></a></li>
+    </ul> 
+ 
+    </header>
+  
+  
+
+    <div class="container">
+        <h1>Welcome</h1>
+        <h1><strong>REPALA SWARAJ(12014274)</strong></h1>
+        <div class="data">
+            <img src="image3.png" alt="image3">
+            <p>Name: Repala Swaraj</p>
+            <p>Reg No: 12014274</p>
+            <p>Roll No: RKM083A13 </p>
+            <p>Group-1</p>
+            <p>Prgramme-B.Tech Computer Science and Engineering</p>
+            <p>Email: repala.swaraj24@gmail.com</p>
+        </div>
+        <div class="inner-container">
+            <h2>View Profile </h2>
+            <p>Here you can find your personal details and educational details.</p>
+            <p>Click here to <a href="profile view.html">view profile</a></p>
+        </div>
+
+        <div class="inner-container">
+            <h2> Announcement </h2>
+            <p>Here you can know the  announcements related to your placements.</p>
+            <p>Click here to <a href="#announcement">view announcements</a></p>
+            
+            <h3>Check the announcement 2 to 3 times daily.</h3>
+        </div>
+
+        <div class="inner-container">
+            <h2>Upcoming Drives</h2>
+            <p> Here you can find the upcoming drives, companies, Job profile  and you can register for drive.</pre>
+            <p>Click here to view <a href="#drive">upcoming drives</a> </p>
+        
+        </div>
+    </div>
+    <div id="announcement">
+     <p><strong>Placement Announcement </strong> </p>
+    </div>
+    <div class="containers">
+            <table >
+                <tr><div class="xyz">
+                             
+        <p><strong>Reporting Schedule for the selection process of 24/7 TC.690.2023.32988.</strong>   
+                                                                         (10/13/2022 1:32:22 PM)</p> 
+
+        <p>This is for the information of all the concerned about the selection 
+        process of 24/7 TC.690.2023.32988. is scheduled as follows:</p> 
+        <br>
+        <pre>
+        Reporting Date: 14-10-2022
+        Reporting Time: 9.00 AM
+        Reporting Venue: Block 32- 313
+        </pre><br>
+        <p> NOTES:</p>
+         <br>
+        <p> 1.Interview and Group Discussion will take place after PPT.</p>
+        <p> 2. Students must be in formals (available in Uni Mall) otherwise action will be taken as 
+        per placement misconduct. policy. <p> 
+        <p> 3. It is Mandatory for the students to report at the campus to appear for the 
+        selection process.</p>
+        <p> 4. Students should update their LPU Touch App, so that they can scan the barcode to mark 
+        their attendance.</p>
+        <p> 5. Students must bring a hard copy of their updated CV & two photographs.</p>
+        <p> 6. Students must carry academic transcripts and government id both original and photocopy.</p>
+        <br>
+        <p>  <strong>Uploaded By:</strong> </p>
+        <p> Dr.H Pal Thethi</p>
+        <p> Division of Career Services </p>
+          </div>        
+        </tr>
+        <tr><div class="abc">
+        
+                
+        <p> <strong>Registration Open for Event: MetaSpark AR </strong>   (10/13/2022 9:52:57 AM)</p>
+        <br>     
+        <p> Holla Developers!!</p>
+         <br>
+        <p> We are excited to share with all of you that Reskilll in association with Meta is  organizing a hands-on workshop on how to create your AR effects on Spark AR Studio. </p>
+        <p> An insight about Augmented Reality from scratch will be given and you will get a  chance to start your journey of AR Developer!</p>
+        <p> At the end of the workshop, you'll be able to create, publish and brag your own  Instagram/Facebook Effects also world will be able to use your AR effects.</p>
+        <br>
+        <p>  Why are you still waiting?</p>
+        <p>  Register Your Interest: https://reskilll.com/event/learnlpu</p>
+         <br>
+         <p> Date: October 14th, 2022 (Friday)</p>
+         <p> Time: 11:00 AM Onwards</p>
+        <br>
+         <p> Venue: Block 25, School of CSE, Lovely Professional University</p>
+         <br>
+         <p> All the Participants will be getting a globally recognized Meta Certificate.</p>
+         <p> There are various companies like Mcaffeine, Boat, Lenskart, etc., who are hiring AR creators and you should not let this opportunity slip away. It will be an amazing opportunity for you to get trained by Meta Spark AR Creator and kick start your journey in this domain.</p>
+         <p> Register yourself at the earliest so that you can be a part of this amazing event and share this with your friends so that they also not miss this opportunity to elevate their   knowledge. </p>
+       
+          <br>
+         <p> <strong>Uploaded By:</strong> </p>
+         <p> Dr. Rajeev Sobti</p>
+        <p> School of Computer Science and Engineering</p>
+        </div>
+        </tr>
+        <tr><div class="xyz">
+            
+                
+        <p><strong>Notice for Lab Exemption of WEBKUL OC.16441.2023.33090 </strong>   (10/13/2022 9:39:04 AM)</p>
+                
+        <p>This is for the information of all the concerned that the computer labs are exempted for 
+        the online test of WEBKUL OC.16441.2023.33090 as per the following schedule:</p>
+
+        <p>The labs are exempted on 13-10-2022 from 10.00 am to 3:00 pm</p>
+
+        <pre>
+        1) 28-304-X
+        2) 28-304-Y
+        3) 28-306-X
+        4) 28-305
+        5) 27-303
+        </pre>
+
+        <p><strong>Uploaded By:</strong> 
+            <p>Dr.H Pal Thethi
+                <p>Division of Career Services
+         </div>   
+        </tr>
+        <tr><div class="abc">
+            
+                
+            <p><strong>Reporting Schedule for the selection process of WEBKUL OC.16441.2023.33090. </strong>
+                                                                             (10/12/2022 3:35:38 PM)</p>
+
+        <p>This is for the information of all the concerned about the selection process of 
+        WEBKUL OC.16441.2023.33090 is scheduled as follows:</p>
+        <br>
+        <pre>
+        Reporting Date: 13-10-2022
+        Reporting Time: 9.00 AM
+        Reporting Venue: Block 32- 313
+        </pre><br>
+
+        <p>NOTES:</p>
+
+        <p>1.Interview and Online Test will take place after PPT.</p>
+        <p>2.It is Mandatory for the students to bring the hard copy of their Webkul admit card.</p> 
+        <p>3.Students must be in formals (available in Uni Mall) otherwise action will be taken as 
+        per placement misconduct. policy.</p>
+        <p> 4.It is Mandatory for the students to report at the campus to appear for the selection
+        process.</p>
+        <p>5.Students should update their LPU Touch App, so that they can scan the barcode to mark 
+        their attendance.</p>
+        <p>6.Students must bring a hard copy of their updated CV & two photographs.</p>
+        <p>7.Students must carry academic transcripts and government id both original and photocopy.</p>
+        <p>8.Students are required to wear their college ID card during the entire process.</p>
+
+                
+        <p><strong>Uploaded By:</strong> </p>
+        <p> Dr.H Pal Thethi</p>
+        <p> Division of Career Services</p>
+        </div>
+        </tr>
+
+        <tr><div class="xyz">
+        
+                
+            <p><strong>Notice for Lab Exemption of WEBKUL OC.16441.2023.33090. </strong>  (10/12/2022 12:22:40 PM)</p>
+
+            <p>This is for the information of all the concerned that the computer labs are exempted for 
+        the online test ofWEBKUL OC.16441.2023.33090 as per the following schedule:</p>
+
+        <p>The labs are exempted on 13-10-2022 from 10 am to 1:00 pm</p>
+        <br>
+        <pre>
+        1) 28-304-X
+        2) 28-304-Y
+        3) 28-306-X
+        4) 28-305
+        5) 27-303
+        </pre>
+
+        <p><strong>Uploaded By:</strong></p> 
+        <p>Dr.H Pal Thethi</p>
+        <p>Division of Career Services</p>
+        </div>
+        </tr>
+        <tr><div class="abc">
+                    
+            <p><strong>Reporting Schedule for the selection process ofWEBKUL OC.16441.2023.33090. </strong>
+                                                                             (10/12/2022 3:35:38 PM)</p>
+                
+        <p>This is for the information of all the concerned about the selection process 
+        ofWEBKUL OC.16441.2023.33090 is scheduled as follows:</p>
+        <br>
+        <pre>
+        Reporting Date: 13-10-2022
+        Reporting Time: 9.00 AM
+        Reporting Venue: Block 32- 313
+        </pre><br>
+
+        <p>NOTES:</p>
+
+        <p>1.Interview and Online Test will take place after PPT.</p>
+        <p>2. It is Mandatory for the students to bring the hard copy of their Webkul admit card.  
+        <p> 3. Students must be in formals (available in Uni Mall) otherwise action will be taken as per placement misconduct. policy.</p>
+        <p>4. It is Mandatory for the students to report at the campus to appear for the selection process.</p>
+        <p>5. Students should update their LPU Touch App, so that they can scan the barcode to  mark their attendance.</p>
+        <p>6. Students must bring a hard copy of their updated CV & two photographs.</p>
+        <p> 7. Students must carry academic transcripts and government id both original and photocopy.</p>
+        <p> 8.Students are required to wear their college ID card during the entire process.</p>
+
+
+        <p><strong>Uploaded By:</strong></p>
+        <p> Dr.H Pal Thethi</p>
+        <p> Division of Career Services</p>
+        </div>
+        </tr>
+        <tr><div class="xyz">
+
+            <p><strong>Reporting Schedule for the selection process of EXTERNS CLUB TC.30270.2023.30964 </strong> (10/11/2022 2:41:14 PM)</p>
+                    
+            <p> This is for the information of all the concerned about the selection process of 
+        EXTERNS CLUB TC.30270.2023.30964 is scheduled as follows:</p><br>
+        <pre>           
+        Reporting Date: 12-10-2022
+        Reporting Time: 10.00 AM
+        Reporting Venue: Block 32- 313
+        </pre><br>   
+        <p>NOTES:</p>
+                    
+        <p>1. Interviews will take place after PPT.</p>
+        <p>2. Students must be in formals (available in Uni Mall) otherwise action will be taken as per placement misconduct. policy.</p>
+        <p>  3. It is Mandatory for the students to report at the campus to appear for the selection process.</p>
+        <p> 4. Students should update their LPU Touch App, so that they can scan the barcode to  mark their attendance.</p>     
+        <p> 5. Students must bring a hard copy of their updated CV & two photographs.</p>
+            <p> 6. Students must carry academic transcripts and government id both original and photocopy.</p>
+                    
+        <p>  <strong>Uploaded By:</strong> </p>
+        <p>  Dr.H Pal Thethi</p>
+        <p>  Division of Career Services</p>
+        </div>
+        </tr>
+        <tr><div class="abc">
+
+            <p>  <strong>Final Result of ON CAMPUS Drive by ALIENS GROUP PVT LTD OC.8092.2022.30642 </strong>
+                                                                        (10/11/2022 9:43:56 AM)</p>
+
+        <p>  Heartiest Congratulations from Lovely Professional University to the following student selected through ON CAMPUS Drive by ALIENS GROUP PVT LTD OC.8092.2022.30642</p>
+                    
+        <p>** 11801865    Jenna Sumanth Kumar</p><br>
+                    
+        <p> <strong>Uploaded By:</strong></p>
+        <p>  Dr.H Pal Thethi</p>
+        <p>  Division of Career Services</p>
+        </div>
+        </tr>
+        <tr><div class="xyz">
+            
+                
+            <p> <strong>Final Result of ON CAMPUS Drive by SCRIBE EMR OC.27796.2023.30875 </strong>   
+                                                                       (10/10/2022 4:11:44 PM)</p>
+
+        <p> Heartiest Congratulations from Lovely Professional University to the following students selected through ON CAMPUS Drive by SCRIBE EMR OC.27796.2023.30875</p>
+
+        <p> ** 12019741    Samtta Mann</p>
+
+        <p> ** 11904782    Aadhya Aashi </p>
+
+        <p> ** 12115080    Anshuman Baruah</p>
+
+        <p> ** 11902596    Bhavya Mallik</p>
+
+        <p>** 12112551    Apoorva Chauhan</p>
+
+        <p> ** 12115836    Rashleen Kaur</p>
+
+        <p> <strong>Uploaded By:</strong> </p>
+        <p> Dr.H Pal Thethi</p>
+        <p> Division of Career Services</p>
+        </tr>
+        <tr><div class="abc">
+                
+            <p><strong>Reporting Schedule for the selection process of YASH TECHNOLOGIES TC.17295.2023.34270 & TC.17295.2023.30954  </strong>  (10/10/2022 3:53:28 PM)</p>
+
+            <p>This is for the information of all the concerned that selection process of 
+        YASH TECHNOLOGIES TC.17295.2023.34270 & TC.17295.2023.30954. is scheduled as follows:</p>
+       <pre>
+        Reporting Date: 11-10-2022
+        Reporting Time: 9.30 AM
+        Reporting Venue: Block 32- 313
+        </pre><br>
+
+       <p> NOTES:</p>
+
+       <p> 1. Group discussion & Interview will take place after PPT.</p>
+       <p> 2. Students must be in formals (available in Uni Mall) otherwise action will be taken as per placement misconduct. policy.</p>
+       <p>3. It is Mandatory for the students to report at the campus to appear for the selection process.</p>
+       <p> 4. Students should update their LPU Touch App, so that they can scan the barcode to  mark their attendance.</p>
+       <p>5. Students must bring a hard copy of their updated CV & two photographs.</p>
+       <p>6. Students must carry academic transcripts and government id both original and photocopy.</p>
+
+       <p> <strong>Uploaded By:</strong></p>
+       <p>Dr.H Pal Thethi</p>
+       <p>Division of Career Services</p>
+       </div>
+        </tr>
+        <tr><div class="xyz">
+
+                
+                    
+        <p><strong>Final Result of One-year Internship Drive by LENTRA AI TC.30217.2023.30796  </strong> 
+                                                                        (10/10/2022 3:43:43 PM)</p>
+
+        <p>Heartiest Congratulations from Lovely Professional University to the following students selected through One-year Internship Drive by LENTRA AI TC.30217.2023.30796</p>
+         <br><br>
+                    
+         <pre>
+        ** 11912520    Saurabh Singh 
+
+        ** 11906801    Ansh Goyal
+
+        ** 11912294    Shiwangi Upadhyay
+
+        ** 11912178    Tanvi Lalotra
+
+        ** 11913172    Ashu Rajput
+         </pre>
+
+         <p><strong>Uploaded By:</strong></p> 
+        <p>Dr.H Pal Thethi</p>
+        </tr>
+        </div>
+        </table>
+    </div>
+
+    <div id="drive">
+        <p><strong>Upcoming Drives and Drive Registration</strong> </p>
+    </div>
+        <div class="containers">
+            <div class="drive-table">
+            <table>
+                <tr id="tr-color">
+                    <th>Drive Date</th>
+                    <th>Register By</th>
+                    <th>Company</th>
+                    <th>Streams Eligible</th>
+                    <th>Status</th>
+                    <th>Is Eligible</th>
+                    <th>Registered</th>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>03/11/2022 17:00</td>
+                    <td>Amazon</td>
+                    <td>CSE/IT</td>
+                    <td>Registration Open</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/11/2022 14:00</td>
+                    <td>Data Grokr</td>
+                    <td>CSE/IT</td>
+                    <td>Registration Open</td>
+                    <td>Yes</td>
+                    <td class="register"><a href="">Click to Register</a></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>28/11/2022 13:00</td>
+                    <td>Data Grokr</td>
+                    <td>CSE/IT</td>
+                    <td>Registration Open</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/11/2022 14:00</td>
+                    <td>Infosys</td>
+                    <td>CSE/IT</td>
+                    <td>Registration Open</td>
+                    <td>Yes</td>
+                    <td class="register"><a href="">Click to Register</a></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/11/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/10/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/10/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/10/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/10/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/10/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/10/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/10/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/10/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/08/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/08/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/08/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/08/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/08/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/08/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/08/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/08/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/08/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/08/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/08/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/08/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/08/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/08/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/08/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/08/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/08/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/07/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/07/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/07/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/07/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/06/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/06/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr> <tr>
+                    <td>Will be Notified Later</td>
+                    <td>14/06/2022 13:00</td>
+                    <td>TVS TYRES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Will be Notified Later</td>
+                    <td>31/06/2022 14:00</td>
+                    <td>L&T TECHNOLOGY SERVICES</td>
+                    <td>CSE/IT,ECE,EEE,ME,CE,MBA</td>
+                    <td>Registration Closed</td>
+                    <td>No</td>
+                    <td></td>
+                </tr>
+            </table>
+            </div>
+        </div>
+        <div id="summary">
+            <p><strong>Summary</strong></p>
+        </div>
+            <div class="summary-box">
+               
+                        <p>Total No. of Drives: 10,</p>
+                        <p>Drives attempted: 5,</p>
+                        <p>Successful drives: 2,</p>
+                        <p>Unsuccessful drives: 3</p>
+        
+                <br>
+                <div id="myPlot" style="max-width: 300px; height:auto ; margin:auto"></div>
+            </div>
+            <script>
+                var xArray = ["Total No. of  drives ","Drives attempted","Successful drives", " Unsuccessful drives"];
+                var yArray = [10,5,2,3 ];
+
+                var data = [{
+                x:xArray,
+                y:yArray,
+                type:"bar"
+                }];
+
+                var layout = {title:"Student status"};
+
+                Plotly.newPlot("myPlot", data, layout);
+            </script>
+         
+     
+
+</body>
+</html>

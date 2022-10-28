@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> -->
+    <link rel="icon" type="image" href="icon.ico">
+    <title>Dashboard</title>
+    <script src="jquery.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <style>
+        /* *{
+          font-family: Raleway;
+        } */
+        body{
+         background-color: moccasin;
+        }
+        .logout{
+            float: right;
+
+        }
+        .logout a
+            {
+            margin: 0px;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 25px;
+            background-color: black;
+            color: white; 
+            width: 150px;
+            height: 25px;
+        
+        }
+        .logout a:hover{
+            background-color: #AFC9DC;
+            color: black;
+        }
+        .navbar{
+            
+            padding:15px;
+            border: 2px solid black;
+            /* background-color: rgb(17, 225, 176)  ; */
+            border-radius: 10px;
+            background-color: orange;
+   
+        }
+        h1{
+            text-align: center;
+        }
+        h2{
+          background-color: orange  ;
+          /* background-color: black; */
+          color: white;
+          padding: 20px;
+          text-align: center;
+          font-size:larger;
+          margin-top: 20px;
+          text-align: center;
+          border:1px solid black;
+          
+        }
+        
+        ul{
+            margin-bottom: 10vh;
+        }
+        ul li{
+            display: inline-block;
+            padding-left: 15px;
+            border: 3px solid white;
+           border-radius: 10px;
+           background-color: black;
+           text-align: center;
+           margin-left: 5px;
+        }
+
+        ul li a {
+            margin: 3px;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 25px;
+            background-color:#FFF0EB;
+            color: #2D0B00 ; 
+            width: 150px;
+            height: 25px;
+            border-radius: 2px;
+        }
+        ul li a:hover{
+            background-color: #AFC9DC;
+        }
+        
+        .containers{
+            border: 1px solid black;
+            overflow-y:scroll;
+            height:650px;
+           
+        }
+        .tr-color th{
+            background-color:coral;
+        }
+  
+        .btn{
+            border: 1px solid black;
+            display: inline;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        .btn button:hover{
+            background-color: green;
+        }
+        .btn button:active{
+            background-color: red;
+        }
+
+        /* dropdown for filter */
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        color: black;
+        padding: 25px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+        display: block;
+        margin-left:35px ;
+        }
+        /* Drop right for CSE */
+        .dropright {
+        position: relative;
+        display: inline-block;
+        }
+
+        .dropright-menu {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+
+        .dropright-menu a {
+        color: black;
+        padding: 25px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        }
+        .dropright-menu button{
+            color: black;
+            padding: 25px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+        .dropright-menu a:hover {background-color: #f1f1f1}
+
+        .dropright:hover .dropright-menu {
+        display: block;
+        margin-left:35px ;
+        }
+        #filter a{
+            padding: 10px;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 25px;
+            background-color: black;
+            color: white; 
+            width: 150px;
+            height: 25px;
+        }
+        .List-table{
+          border: 1px solid black;
+        }
+        .containers table{
+            border: 1px solid black;
+            width: 100%;
+            border-collapse: collapse;
+            
+        }
+        .containers  th,td{
+            margin: 0px;
+            border: 1px solid black;
+            padding: 50px;
+            width: 50px;
+            text-align: center ;
+        }
+        .containers tr:nth-child(odd){
+            background-color: white;
+        }
+        .containers tr:nth-child(even){
+            background-color: #eeeeee;
+        } 
+        .donotdisplay{
+            display: none;
+        }
+        .summary-box{
+            margin: 0px;
+            border: 1px solid black ;
+            padding: 20px;
+            text-align: center;
+            
+        }
+        
+    </style>
+   
+ </head>
+ <body>
+  <h1>Dashboard</h1>
+      <div class="logout">
+        <a href="PlacementPortal.html"> <strong>Logout</strong></a>
+    </div><br><br>
+    <h3><strong>Welcome XYZ Officer!</strong></h3>
+    <ul class="navbar">
+        <li><a href="#list"><strong>List</strong></a></li>
+        <li ><a href="#filter"><strong>Filter</strong></a></li>
+        <li><a href="#registered-students"><strong>Register students</strong></a></li>
+        <li onclick="drive()"><a href=""><strong>Create drive</strong></a></li>
+        <li onclick="announcement()"><a href=""><strong>Announcement</strong></a></li>
+        <li><a href="#summary"><strong>Summary</strong></a></li>
+    </ul>
+     
+
+    <div id="list">
+        <h2> <strong>List of Students</strong> </h2>
+    </div>
+    <div class="containers">
+      <div class="List-table">
+        <table>
+              <tr class="tr-color">
+                <th>Name</th><th>Branch</th><th>Domain</th><th>Reg Number</th><th>Placement Id</th><th>Reappear/Backlog</th><th>CGPA</th>
+              </tr>
+          <div id="P1">
+            <tr>
+             <td>Swaraj Repala</td><td>CSE </td><td>Web Developement</td><td>12014274</td><td>1</td><td>0</td><td>8.5</td>
+            </tr>
+            <tr>
+              <td>Bharat</td><td>ECE</td><td>Communication Engineer</td><td>14014584</td><td>2</td><td>0</td><td>7.3</td>
+            </tr>
+            <tr>
+              <td>Arjun</td><td>EEE</td><td>Networking</td><td>14014506</td><td>3</td><td>1</td><td>8.7</td>
+            </tr>
+            <tr>
+              <td>Sahil</td><td>Mech</td><td>Manufacturing</td><td>14014265</td><td>4</td><td>0</td><td>7.7</td>
+            </tr>
+            <tr>
+              <td>Geet</td><td>Mech</td><td>Manufacturing</td><td>14014366</td><td>5</td><td>0</td><td>6.8</td>
+            </tr>
+            <tr>
+              <td>Bharathi</td><td>EEE</td><td>Intelligent System</td><td>1401256</td><td>6</td><td>1</td><td>7.3</td>
+            </tr>
+            <tr>
+              <td>Nithin</td><td>Agri</td><td>Entomology</td><td>1401234</td><td>7</td><td>0</td><td>6.93</td>
+            </tr>
+            <tr>
+              <td>Sanjana</td><td>CSE</td><td>Web Developement</td><td>1404567</td><td>8</td><td>0</td><td>7.8</td>
+            </tr>
+            <tr>
+              <td>Harshith</td><td>CSE</td><td>Data Science</td><td>1407890</td><td>9</td><td>0</td><td>7.56</td>
+            </tr>
+            <tr>
+                <td>Mayank Yadav</td><td>IT</td><td>Devops</td><td>1401245</td><td>10</td><td>1</td><td>8.1</td>
+            </tr>
+          </div>
+          <div id="P2">
+              <tr>
+                  <td>Piyush Sinha</td><td>CSE</td><td>Machine Learning</td><td>1402356</td><td>11</td><td>0</td><td>8.8</td>
+              </tr>
+              <tr>
+                  <td>Mayank Gupta</td><td>ECE</td><td>Wireless Communication System</td><td>1407896</td><td>12</td><td>0</td><td>8.21</td>
+              </tr>
+              <tr>
+                  <td>Naman</td><td>Agri</td><td>Horticulture</td><td>1408745</td><td>13</td><td>0</td><td>7.43</td>
+              </tr>
+              <tr>
+                  <td>Moksh</td><td>IT</td><td>Cloud Tech</td><td>1407412</td><td>14</td><td>0</td><td>7.8</td>
+              </tr>
+              <tr>
+                  <td>Anmol</td><td>IT</td><td>Robotic process automation</td><td>1401256</td><td>15</td><td>0</td><td>7.7</td>
+              </tr>
+              <tr>
+                  <td>Sonu</td><td>Agri</td><td> Horticulture</td><td>1407852</td><td>16</td><td>1</td><td>7.5</td>
+              </tr>
+              <tr>
+                  <td>Danish</td><td>EEE</td><td>Embedded Systems</td><td>1404568</td><td>17</td><td>0</td><td>8.5</td>
+              </tr>
+              <tr>
+                  <td>Vicky</td><td>Agri</td><td>MSc in Entomology</td><td>1408962</td><td>18</td><td>0</td><td>5.8</td>
+              </tr>
+              <tr>
+                  <td>Ali</td><td>ECE</td><td>Communication Engineer</td><td>1401254</td><td>19</td><td>0</td><td>7.13</td>
+              </tr>
+              <tr>
+                  <td>Venkat</td><td>Agri</td><td> Plant Pathology</td><td>1408426</td><td>20</td><td>1</td><td>6.84</td>
+              </tr>
+          </div>
+          <div id="P3">
+            <tr>
+              <td>Shiva</td><td>CSE </td><td>Web Developement</td><td>1402486</td><td>21</td><td>0</td><td>8</td>
+            </tr>
+            <tr>
+              <td>Krishna prasad</td><td>ECE</td><td>Wireless Communication System</td><td>1406248</td><td>22</td><td>1</td><td>6.7</td>
+            </tr>
+            <tr>
+              <td>Varshith</td><td>EEE</td><td>AI and ML</td><td>1408624</td><td>23</td><td>0</td><td>7.4</td>
+            </tr>
+            <tr>
+              <td>Dinesh</td><td>Mech</td><td>Mechanical Design</td><td>1408462</td><td>24</td><td>0</td><td>7.65</td>
+            </tr>
+            <tr>
+              <td>Chetan</td><td>Mech</td><td>Ground Vechile Systems</td><td>1408246</td><td>25</td><td>0</td><td>8.5</td>
+            </tr>
+            <tr>
+              <td>Praveen</td><td>EEE</td><td>Power Electronics</td><td>1406482</td><td>26</td><td>1</td><td>6.9</td>
+            </tr>
+            <tr>
+              <td>Sumanth</td><td>Agri</td><td>Plant Pathology</td><td>1407531</td><td>27</td><td>0</td><td>7.8</td>
+            </tr>
+            <tr>
+              <td>Satya</td><td>CSE</td><td>Cyber Security</td><td>1409513</td><td>28</td><td>0</td><td>7.21</td>
+            </tr>
+            <tr>
+              <td>Aneel</td><td>ECE</td><td>Wireless Communication System</td><td>1401597</td><td>29</td><td>2</td><td>7.7</td>
+            </tr>
+            <tr>
+                <td>Bharat</td><td>IT</td><td>Blockchain</td><td>1407523</td><td>30</td><td>0</td><td>7.3</td>
+            </tr>
+        </div>
+        <div id="P4">
+            <tr>
+              <td>Srikar</td><td>CSE </td><td>Web Developement</td><td>14075233</td><td>31</td><td>0</td><td>8.5</td>
+            </tr>
+            <tr>
+              <td>Bhargav</td><td>ECE</td><td>Communication Systems</td><td>1401599</td><td>32</td><td>0</td><td>8.7</td>
+            </tr>
+            <tr>
+              <td>Ashish</td><td>EEE</td><td>Robotics</td><td>1409861</td><td>33</td><td>1</td><td>7.13</td>
+            </tr>
+            <tr>
+              <td>Kalyan</td><td>Mech</td><td>Transportation Systems</td><td>1403791</td><td>34</td><td>0</td><td>7.73</td>
+            </tr>
+            <tr>
+              <td>Mohith</td><td>Mech</td><td>Mechanical Design</td><td>1407391</td><td>35</td><td>0</td><td>7.45</td>
+            </tr>
+            <tr>
+              <td>Rohan lal</td><td>EEE</td><td>Embedded Systems</td><td>1407419</td><td>36</td><td>0</td><td>8.5</td>
+            </tr>
+            <tr>
+              <td>Vignesh</td><td>Agri</td><td>Horticulture</td><td>1408753</td><td>37</td><td>2</td><td>7.2</td>
+            </tr>
+            <tr>
+              <td>Tarun Naidu</td><td>CSE</td><td>Data Science</td><td>1406333</td><td>38</td><td>0</td><td>7.9</td>
+            </tr>
+            <tr>
+              <td>Charan</td><td>CSE</td><td>Cyber Security</td><td>1406401</td><td>39</td><td>0</td><td>6.7</td>
+            </tr>
+            <tr>
+                <td>Tarun</td><td>IT</td><td>Blockchain</td><td>1405401</td><td>40</td><td>0</td><td>7.8</td>
+            </tr>
+        </div>
+        </table>
+        <br>
+      </div>
+      </div>
+
+    </div>
+    <br><br><br><br>
+
+    <!-- Registered students table -->
+    <div id="registered-students">
+    <h2 ><strong> Registered Students</strong></h2>
+    </div>
+    <div class="dropdown">
+        <p id="filter"><a href="#registered-students"><strong>Filter</strong><i class="fa fa-caret-down"></i></a></p>
+        <div class="dropdown-content">
+            <div class="dropright">
+             <a  id="cse-list">CSE</a>
+                <div class="dropright-menu">
+                  <button id="datascience-list">Data Science</button>  
+                    <button id="ml-list">Machine Learning</button>
+                    <button id="wb-list">Web Developement</button>
+                    <button id="software-list">Software</button>
+                    <button id="cyber-list">Cyber Security</button>
+                    <button id="iot-list">IOT</button>
+                </div>
+            </div>
+            <div class="dropright">
+            <a  id="it-list">IT</a>
+            <div class="dropright-menu">
+                <button id="ai-list">AI and ML </button>
+                <button id="rpa-list">Robotic process automation</button>
+                <button id="bc-list">Blockchain</button>
+                <button id="devops-list">Devops</button>
+                <button id="cloud-list">Cloud Tech</button>
+            </div>
+            </div>
+            <div class="dropright">
+            <a id="eee-list">EEE</a>
+            <div class="dropright-menu">
+                <button id="embedded-list">Embedded Systems</button>
+                <button id="is-list">Intelligent Systems</button>
+                <button id="network-list">Networking</button>
+                <button id="robotics-list">Robotics</button>
+                <button id="pe-list">Power Electronics </button>
+            </div>
+            </div>
+            <div class="dropright">
+            <a id="mech-list">Mech</a>
+            <div class="dropright-menu">
+                <button id="gvs-list">Ground Vechile Systems</button>
+                <button id="manufacturing-list">Manufacturing</button>
+                <button id="md-list">Mechanical Design</button>
+                <button id="ts-list">Transportation Systems</button>
+            </div>
+            </div>
+            <div class="dropright">
+            <a id="ece-list">ECE</a>
+            <div class="dropright-menu">
+                <button id="cs-list">Communication Systems </button>
+                <button id="wcs-list">Wireless Communication System</button>
+                <button id="ce-list">Communication Engineer</button>
+            </div>
+            </div>
+            <div class="dropright">
+            <a  id="agri-list">Agri</a>
+            <div class="dropright-menu">
+                <button id="horti-list"> Horticulture </button>
+                <button id="ento-list"> Entomology</button>
+                <button id="pp-list"> Plant Pathology</button>
+            </div>
+            </div>
+         
+        </div>
+    </div>
+
+
+    
+      <div class="containers">
+        <div id="Filter">
+          <table id="Filter-table">
+            <div>
+              <thead>
+                <tr class="tr-color">
+                  <th>Name</th>
+                  <th>Branch</th>
+                  <th>Domain</th>
+                  <th>Reg Number</th>
+                  <th>Placement Id</th>
+                  <th>Reappear/Backlog</th>
+                  <th>Block/Unblock</th>
+                </tr>
+              </thead>
+            </div>
+              <tbody>
+                <div id="Page1">
+                  <tr>
+                  <td>Swaraj Repala</td><td>CSE </td><td>Web Developement</td><td>12014274</td><td>1</td><td>0</td><td><button id="btn2" onclick="blockunblock2()">Block</button></td> 
+                  </tr>
+                  <tr>
+                    <td>Arjun</td><td>EEE</td><td>Networking</td><td>14014506</td><td>3</td><td>0</td><td><button id="btn3" onclick="blockunblock3()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Sahil</td><td>Mech</td><td>Manufacturing</td><td>14014265</td><td>4</td><td>1</td><td><button id="btn4" onclick="blockunblock4()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Bharathi</td><td>EEE</td><td>Intelligent System</td><td>1401256</td><td>6</td><td>1</td><td><button id="btn5" onclick="blockunblock5()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Nithin</td><td>Agri</td><td>Entomology</td><td>1401234</td><td>7</td><td>0</td><td><button id="btn6" onclick="blockunblock6()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Sanjana</td><td>CSE</td><td>Web Developement</td><td>1404567</td><td>8</td><td>0</td><td><button id="btn7" onclick="blockunblock7()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Harshith</td><td>CSE</td><td>Data Science</td><td>1407890</td><td>9</td><td>0</td><td><button id="btn8" onclick="blockunblock8()">Block</button></td>
+                  </tr>
+                  <tr>
+                      <td>Mayank Yadav</td><td>IT</td><td>Devops</td><td>1401245</td><td>10</td><td>1</td><td><button id="btn9" onclick="blockunblock9()">Block</button></td>
+                  </tr>
+                </div>
+                <div id="Page2">
+                    <tr>
+                        <td>Piyush Sinha</td><td>CSE</td><td>Machine Learning</td><td>1402356</td><td>11</td><td>0</td><td><button id="btn10" onclick="blockunblock10()">Block</button></td>
+                    </tr>
+                    <tr>
+                        <td>Mayank Gupta</td><td>ECE</td><td>Wireless Communication System</td><td>1407896</td><td>12</td><td>0</td><td><button id="btn11" onclick="blockunblock11()">Block</button></td>
+                    </tr>
+                    <tr>
+                        <td>Naman</td><td>Agri</td><td>Horticulture</td><td>1408745</td><td>13</td><td>0</td><td><button id="btn12" onclick="blockunblock12()">Block</button></td>
+                    </tr>
+                    <tr>
+                        <td>Moksh</td><td>IT</td><td>Cloud Tech</td><td>1407412</td><td>14</td><td>0</td><td><button id="btn13" onclick="blockunblock13()">Block</button></td>
+                    </tr>
+                    <tr>
+                        <td>Anmol</td><td>IT</td><td>Robotic process automation</td><td>1401256</td><td>15</td><td>0</td><td><button id="btn14" onclick="blockunblock14()">Block</button></td>
+                    </tr>
+                    <tr>
+                        <td>Sonu</td><td>Agri</td><td> Horticulture</td><td>1407852</td><td>16</td><td>1</td><td><button id="btn15" onclick="blockunblock15()">Block</button></td>
+                    </tr>
+                    <tr>
+                        <td>Danish</td><td>EEE</td><td>Embedded Systems</td><td>1404568</td><td>17</td><td>0</td><td><button id="btn16" onclick="blockunblock16()">Block</button></td>
+                    </tr>
+                    <tr>
+                        <td>Ali</td><td>ECE</td><td>Communication Engineer</td><td>1401254</td><td>19</td><td>0</td><td><button id="btn17" onclick="blockunblock17()">Block</button></td>
+                    </tr>
+                </div>
+                <div id="Page3">
+                  <tr>
+                    <td>Shiva</td><td>CSE </td><td>Web Developement</td><td>1402486</td><td>21</td><td>0</td><td><button id="btn18" onclick="blockunblock18()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Varshith</td><td>EEE</td><td>AI and ML</td><td>1408624</td><td>23</td><td>0</td><td><button id="btn19" onclick="blockunblock19()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Praveen</td><td>EEE</td><td>Power Electronics</td><td>1406482</td><td>26</td><td>1</td><td><button id="btn20" onclick="blockunblock20()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Sumanth</td><td>Agri</td><td>Plant Pathology</td><td>1407531</td><td>27</td><td>0</td><td><button id="btn21" onclick="blockunblock21()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Satya</td><td>CSE</td><td>Cyber Security</td><td>1409513</td><td>28</td><td>0</td><td><button id="btn22" onclick="blockunblock22()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Aneel</td><td>ECE</td><td>Wireless Communication System</td><td>1401597</td><td>29</td><td>2</td><td><button id="btn23" onclick="blockunblock23()">Block</button></td>
+                  </tr>
+                  <tr>
+                      <td>Bharat</td><td>IT</td><td>Blockchain</td><td>1407523</td><td>30</td><td>0</td><td><button id="btn24" onclick="blockunblock24()">Block</button></td>
+                  </tr>
+                </div>
+                <div id="Page4">
+                  <tr>
+                    <td>Srikar</td><td>CSE </td><td>Web Developement</td><td>14075233</td><td>31</td><td>0</td><td><button id="btn25" onclick="blockunblock25()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Kalyan</td><td>Mech</td><td>Transportation Systems</td><td>1403791</td><td>34</td><td>0</td><td><button id="btn26" onclick="blockunblock26()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Mohith</td><td>Mech</td><td>Mechanical Design</td><td>1407391</td><td>35</td><td>0</td><td><button id="btn27" onclick="blockunblock27()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Rohan lal</td><td>EEE</td><td>Embedded Systems</td><td>1407419</td><td>36</td><td>0</td><td><button id="btn28" onclick="blockunblock28()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Vignesh</td><td>Agri</td><td>Horticulture</td><td>1408753</td><td>37</td><td>2</td><td><button id="btn29" onclick="blockunblock29()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Tarun Naidu</td><td>CSE</td><td>Data Science</td><td>1406333</td><td>38</td><td>0</td><td><button id="btn30" onclick="blockunblock30()">Block</button></td>
+                  </tr>
+                  <tr>
+                    <td>Charan</td><td>CSE</td><td>Cyber Security</td><td>1406401</td><td>39</td><td>0</td><td><button id="btn31" onclick="blockunblock31()">Block</button></td>
+                  </tr>
+                  <tr>
+                      <td>Tarun</td><td>IT</td><td>Blockchain</td><td>1405401</td><td>40</td><td>0</td><td><button id="btn32" onclick="blockunblock32()">Block</button></td>
+                  </tr>
+                </div>
+             </tbody>
+         </table>
+          <br>
+        </div>
+      </div>
+      <br><br><br>
+
+      <div id="summary">
+        <h2><strong>Summary</strong></h2>
+      </div>
+        <div class="summary-box">
+           
+                    <p>Total No. of students: 40,</p>
+                    <p>No. of students Registered: 31,</p>
+                    <p>No. of students not Registered: 9,</p>
+
+            <br>
+            <div id="myPlot" style="max-width: 300px; height:auto ; margin:auto"></div>
+
+        </div>
+  
+      <script>
+
+        //for summary
+        var xArray = ["Total No.of students","No.of students Registered", "No.of students not Registered"];
+        var yArray = [40,31,9];
+
+        var data = [{
+        x:xArray,
+        y:yArray,
+        type:"bar"
+        }];
+
+        var layout = {title:"Graph of Status Students"};
+
+        Plotly.newPlot("myPlot", data, layout);
+        //summary
+
+        // for logout
+        $(document).ready(function(){
+           $(".logout").click(function(){
+             alert(" You are Logging Out!!");
+           })
+        });
+ 
+        //for  Block and Unblock
+
+          function blockunblock2(){
+            
+            let btn = document.getElementById('btn2');
+
+            //  Toggle button text on click
+            let initialText = 'Block';
+
+            if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+                btn.textContent = 'undo';
+                
+                alert("You Blocked this student");
+                
+                btn.style.backgroundColor = 'red';
+            } else {
+                btn.textContent = initialText;
+                alert("You Unblocked this student")
+                btn.style.backgroundColor = 'white';
+            }
+            }
+
+          function blockunblock3(){
+ 
+           let btn = document.getElementById('btn3');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+               btn.textContent = 'undo';
+               alert("You Blocked this student");
+               
+               btn.style.backgroundColor = 'red';
+           } else {
+               btn.textContent = initialText;
+               alert("You Unblocked this student")
+               btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock4(){
+ 
+           let btn = document.getElementById('btn4');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock5(){
+ 
+           let btn = document.getElementById('btn5');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock6(){
+ 
+           let btn = document.getElementById('btn6');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock7(){
+ 
+           let btn = document.getElementById('btn7');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock8(){
+ 
+           let btn = document.getElementById('btn8');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock9(){
+ 
+           let btn = document.getElementById('btn9');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock10(){
+ 
+           let btn = document.getElementById('btn10');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock11(){
+ 
+           let btn = document.getElementById('btn11');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock12(){
+ 
+           let btn = document.getElementById('btn12');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock13(){
+ 
+           let btn = document.getElementById('btn13');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock14(){
+ 
+           let btn = document.getElementById('btn14');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock15(){
+ 
+           let btn = document.getElementById('btn15');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock16(){
+ 
+           let btn = document.getElementById('btn16');
+ 
+           //  Toggle button text on click
+           let initialText = 'Block';
+ 
+           if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+           btn.textContent = 'undo';
+           alert("You Blocked this student");
+           btn.style.backgroundColor = 'red';
+           } else {
+           btn.textContent = initialText;
+           alert("You Unblocked this student")
+           btn.style.backgroundColor = 'white';
+           }
+           }
+
+          function blockunblock17(){
+ 
+            let btn = document.getElementById('btn17');
+  
+            //  Toggle button text on click
+            let initialText = 'Block';
+  
+            if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+            btn.textContent = 'undo';
+            alert("You Blocked this student");
+            btn.style.backgroundColor = 'red';
+            } else {
+            btn.textContent = initialText;
+            alert("You Unblocked this student")
+            btn.style.backgroundColor = 'white';
+            }
+          }
+          function blockunblock18(){
+  
+          let btn = document.getElementById('btn18');
+  
+          //  Toggle button text on click
+          let initialText = 'Block';
+  
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+              btn.textContent = 'undo';
+              alert("You Blocked this student");
+              btn.style.backgroundColor = 'red';
+          } else {
+              btn.textContent = initialText;
+              alert("You Unblocked this student")
+              btn.style.backgroundColor = 'white';
+              }
+            }
+          function blockunblock19(){
+      
+              let btn = document.getElementById('btn19');
+      
+              //  Toggle button text on click
+              let initialText = 'Block';
+      
+              if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+                  btn.textContent = 'undo';
+                  alert("You Blocked this student");
+                  btn.style.backgroundColor = 'red';
+              } else {
+                  btn.textContent = initialText;
+                  alert("You Unblocked this student")
+                  btn.style.backgroundColor = 'white';
+              }
+            }
+          function blockunblock20(){
+    
+          let btn = document.getElementById('btn20');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+              btn.textContent = 'undo';
+              alert("You Blocked this student");
+              btn.style.backgroundColor = 'red';
+          } else {
+              btn.textContent = initialText;
+              alert("You Unblocked this student")
+              btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock21(){
+    
+          let btn = document.getElementById('btn21');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+              btn.textContent = 'undo';
+              alert("You Blocked this student");
+              btn.style.backgroundColor = 'red';
+          } else {
+              btn.textContent = initialText;
+              alert("You Unblocked this student")
+              btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock22(){
+    
+          let btn = document.getElementById('btn22');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+              btn.textContent = 'undo';
+              alert("You Blocked this student");
+              btn.style.backgroundColor = 'red';
+          } else {
+              btn.textContent = initialText;
+              alert("You Unblocked this student")
+              btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock23(){
+    
+          let btn = document.getElementById('btn23');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+              btn.textContent = 'undo';
+              alert("You Blocked this student");
+              btn.style.backgroundColor = 'red';
+          } else {
+              btn.textContent = initialText;
+              alert("You Unblocked this student")
+              btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock24(){
+    
+          let btn = document.getElementById('btn24');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+          btn.textContent = 'undo';
+          alert("You Blocked this student");
+          btn.style.backgroundColor = 'red';
+          } else {
+          btn.textContent = initialText;
+          alert("You Unblocked this student")
+          btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock25(){
+    
+          let btn = document.getElementById('btn25');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+          btn.textContent = 'undo';
+          alert("You Blocked this student");
+          btn.style.backgroundColor = 'red';
+          } else {
+          btn.textContent = initialText;
+          alert("You Unblocked this student")
+          btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock26(){
+    
+          let btn = document.getElementById('btn26');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+              btn.textContent = 'undo';
+              alert("You Blocked this student");
+              btn.style.backgroundColor = 'red';
+          } else {
+              btn.textContent = initialText;
+              alert("You Unblocked this student")
+              btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock27(){
+    
+          let btn = document.getElementById('btn27');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+              btn.textContent = 'undo';
+              alert("You Blocked this student");
+              btn.style.backgroundColor = 'red';
+          } else {
+              btn.textContent = initialText;
+              alert("You Unblocked this student")
+              btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock28(){
+    
+          let btn = document.getElementById('btn28');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+          btn.textContent = 'undo';
+          alert("You Blocked this student");
+          btn.style.backgroundColor = 'red';
+          } else {
+          btn.textContent = initialText;
+          alert("You Unblocked this student")
+          btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock29(){
+    
+          let btn = document.getElementById('btn29');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+          btn.textContent = 'undo';
+          alert("You Blocked this student");
+          btn.style.backgroundColor = 'red';
+          } else {
+          btn.textContent = initialText;
+          alert("You Unblocked this student")
+          btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock30(){
+    
+          let btn = document.getElementById('btn30');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+          btn.textContent = 'undo';
+          alert("You Blocked this student");
+          btn.style.backgroundColor = 'red';
+          } else {
+          btn.textContent = initialText;
+          alert("You Unblocked this student")
+          btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock31(){
+    
+          let btn = document.getElementById('btn31');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+          btn.textContent = 'undo';
+          alert("You Blocked this student");
+          btn.style.backgroundColor = 'red';
+          } else {
+          btn.textContent = initialText;
+          alert("You Unblocked this student")
+          btn.style.backgroundColor = 'white';
+          }
+          }
+
+        function blockunblock32(){
+    
+          let btn = document.getElementById('btn32');
+    
+          //  Toggle button text on click
+          let initialText = 'Block';
+    
+          if (btn.textContent.toLowerCase().includes(initialText.toLowerCase())) {
+          btn.textContent = 'undo';
+          alert("You Blocked this student");
+          btn.style.backgroundColor = 'red';
+          } else {
+          btn.textContent = initialText;
+          alert("You Unblocked this student")
+          btn.style.backgroundColor = 'white';
+          }
+          }
+    
+ 
+         // for creating announcement
+         function announcement() {
+               window.open("create Announcement.html", "_blank", "resizable=yes,top=150,left=500,width=600,height=550");
+         };
+ 
+         //for creating drive
+         function drive() {
+               window.open("create Drive.html", "_blank", "resizable=yes,top=200,left=500,width=600,height=500");
+         };
+          
+         // for filter buttons
+         document.getElementById('filter').addEventListener('click', function() {
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[1].innerText.indexOf('') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+         document.getElementById('cse-list').addEventListener('click', function() {
+         
+         alert("List of CSE students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[1].innerText.indexOf('CSE') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+        document.getElementById('it-list').addEventListener('click', function() {
+         
+         alert("List of IT students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[1].innerText.indexOf('IT') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+        document.getElementById('eee-list').addEventListener('click', function() {
+         
+         alert("List of EEE students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[1].innerText.indexOf('EEE') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+        document.getElementById('mech-list').addEventListener('click', function() {
+         
+         alert("List of Mechanical students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[1].innerText.indexOf('MECH') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+        document.getElementById('ece-list').addEventListener('click', function() {
+         
+         alert("List of ECE students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[1].innerText.indexOf('ECE') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+        document.getElementById('agri-list').addEventListener('click', function() {
+         
+         alert("List of Agriculture students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[1].innerText.indexOf('Agri') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        }); 
+ 
+         document.getElementById('datascience-list').addEventListener('click', function() {
+         
+          alert("List of Data Science students");
+         table = document.getElementById('Filter-table');
+ 
+         tr = table.querySelector('tbody').getElementsByTagName('tr');
+ 
+         for (var i = 0; i < tr.length; i++) {
+             if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Data Science') > -1) {
+                 tr[i].classList.remove('donotdisplay')
+             } else {
+                 tr[i].classList.add('donotdisplay')
+             }
+         }
+         });
+
+      document.getElementById('ml-list').addEventListener('click', function() {
+         
+         alert("List of Machine Learning  students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Machine Learning') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('wb-list').addEventListener('click', function() {
+         
+         alert("List of Web Development students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Web Developement') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('software-list').addEventListener('click', function() {
+         
+         alert("List of Software Development students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Software') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('cyber-list').addEventListener('click', function() {
+         
+         alert("List of Cyber Security students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Cyber Security') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('iot-list').addEventListener('click', function() {
+         
+         alert("List of IOT students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('IOT') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('ai-list').addEventListener('click', function() {
+         
+         alert("List of Artificial intelligence students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('AI and ML') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('rpa-list').addEventListener('click', function() {
+         
+         alert("List of Robotic process automation students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Robotic process automation') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('bc-list').addEventListener('click', function() {
+         
+         alert("List of Blockchain students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Blockchain') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('devops-list').addEventListener('click', function() {
+         
+         alert("List of Devops students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Devops') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('cloud-list').addEventListener('click', function() {
+         
+         alert("List of Cloud Tech students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Cloud Tech') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('embedded-list').addEventListener('click', function() {
+         
+         alert("List of Embedded Systems students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Embedded Systems') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('is-list').addEventListener('click', function() {
+         
+         alert("List of Intelligent Systems students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Intelligent Systems') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('network-list').addEventListener('click', function() {
+         
+         alert("List of Networking students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Networking') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('robotics-list').addEventListener('click', function() {
+         
+         alert("List of Robotics students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Robotics') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('pe-list').addEventListener('click', function() {
+         
+         alert("List of Power Electronics students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Power Electronics') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('gvs-list').addEventListener('click', function() {
+         
+         alert("List of Ground Vechile Systems students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Ground Vechile Systems') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('manufacturing-list').addEventListener('click', function() {
+         
+         alert("List of Manufacturing students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Manufacturing') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('md-list').addEventListener('click', function() {
+         
+         alert("List of Mechanical Design students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Mechanical Design') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('ts-list').addEventListener('click', function() {
+         
+         alert("List of Transportation Systems students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Transportation Systems') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('cs-list').addEventListener('click', function() {
+         
+         alert("List of Communication Systems students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Communication Systems') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('wcs-list').addEventListener('click', function() {
+         
+         alert("List of Wireless Communication System students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Wireless Communication System') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('ce-list').addEventListener('click', function() {
+         
+         alert("List of Communication Engineer students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Communication Engineer') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('horti-list').addEventListener('click', function() {
+         
+         alert("List of Horticulture students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Horticulture') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('ento-list').addEventListener('click', function() {
+         
+         alert("List of Entomology students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Entomology') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        });
+
+        document.getElementById('pp-list').addEventListener('click', function() {
+         
+         alert("List of Plant Pathology students");
+        table = document.getElementById('Filter-table');
+
+        tr = table.querySelector('tbody').getElementsByTagName('tr');
+
+        for (var i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName('td')[2].innerText.indexOf('Plant Pathology') > -1) {
+                tr[i].classList.remove('donotdisplay')
+            } else {
+                tr[i].classList.add('donotdisplay')
+            }
+        }
+        }); 
+     </script> 
+ </body>
+</html>

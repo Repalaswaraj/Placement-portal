@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="icon.ico">
+    <title>Profile View</title>
+    <script src="jquery.js"></script>
+    <style>
+        h2 {
+            color: orangered;
+        }
+
+        h2 span {
+            color: black;
+            font-size: medium;
+        }
+        .profile{
+            padding: 50px;
+            border: 1px solid black;
+            border-radius: 20px;
+        }
+        .data img{
+            float: right;
+            width: 150px;
+            height: 150px;
+            padding-right: 40px;
+        }
+
+        .one {
+            float: center;
+            list-style: none;
+            margin-top: 25px;
+
+        }
+
+        .one td {
+            display: inline-block;
+            padding: 15px;
+        }
+
+        .one td a {
+            text-decoration: none;
+            color: black;
+            padding: 5px 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        .two {
+            text-align: left;
+
+        }
+
+        .tw0 th {
+            text-align: left;
+        }
+
+        #home a:hover{
+            background-color: rosybrown ;
+        }
+        #detail1 a:hover {
+            background-color: rosybrown;
+        }
+        
+        #detail2 a:hover {
+            background-color: rosybrown ;
+        }
+
+        body {
+            border: 100% solid black;
+            padding: 50px;
+            /* background-color: rgb(214, 207, 207); */
+            background-color: moccasin;
+        }
+        .two p{
+            text-align: center;
+        }
+        .profile{
+            background-color: rgb(190, 200, 208);
+        }
+       
+       
+    </style>
+ 
+</head>
+
+<body>
+
+    <h1>My Profile</h1>
+    
+    <header>
+        <table class="one">
+            <td id="home"><a href="Student Dash.html"><strong>Home</strong></a></td>
+            <td id="detail1" colspan=""><a href="#personal"><strong>PERSONAL DETAILS</strong></a></td>
+            <td id="detail2" colspan="3"><a href="#educational"><strong> EDUCATIONAL DETAILS </strong></a></td>
+        
+        </table>
+    </header>
+    <br>
+    <div id="personal">
+        <h1>PERSONAL DETAILS:</h1>
+        <br><br>
+        <div class="profile">
+        <div class="data">
+            <img src="image3.png" alt="image3"><br>
+            <h2>Swaraj Repala <span>B.tech(Computer Science Engineering)</span></h2>
+            <h3>(12014274)</h3>
+        </div>
+        <br><br><br>
+        <hr>
+        <br><br>
+
+
+        <table class="two">
+
+            <tr>
+                <td colspan="3"><strong>Name</strong></th>
+                <td>:</td>
+                <td>Swaraj Repala</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Gender</strong></th>
+                <td>:</td>
+                <td>Male</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Email</strong></th>
+                <td>:</td>
+                <td>repala.swaraj24@gmail.com</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Phone No.</strong></th>
+                <td>:</td>
+                <td>99480xxxxx</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>D.O.B</strong></th>
+                <td>:</td>
+                <td>24-05-2002</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Nationality</strong></th>
+                <td>:</td>
+                <td>Indian</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>College</strong></th>
+                <td>:</td>
+                <td>Lovely Professional University</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Stream</strong></th>
+                <td>:</td>
+                <td>Computer Science and Engineering</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Enrollment Year</strong></th>
+                <td>:</td>
+                <td>2020</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Current Percentage</strong></th>
+                <td>:</td>
+                <td>81</td>
+            </tr>
+
+            <tr>
+                <td colspan="3"><strong>Backlogs</strong></th>
+                <td>:</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Current Address</strong></th>
+                <td>:</td>
+                <td>1-2 suryapet, telangana</td>
+            </tr>
+            <tr>
+                <td colspan="3"><strong>Permanent Address</strong></th>
+                <td>:</td>
+                <td>1-2 suryapet, telangana</td>
+            </tr>
+
+         </table>
+       </div>
+    </div>
+    <br><br><br><br>
+    <hr>
+    <br><br><br>
+    <div id="educational">
+        <h1>EDUCATIONAL DETAILS:</h1><br><br>
+        <div class="profile">
+        <h2>Swaraj Repala <span>B.tech(Computer Science Engineering)</span></h2>
+        <p>repala.swaraj24@gmail.com</p><br><br><br>
+        <table width="100%", border="1px solid black">
+            <tr >
+                <td>S.NO</td>
+                <td>Qualification</td>
+                <td>Specilization</td>
+                <td>Institution / University</td>
+                <td>Year of Passing</td>
+                <td>Marks (%) / CGPA</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    <p>10th</p>
+                </td>
+                <td>
+                    <p>N/A</p>
+                </td>
+                <td>
+                    <p>KKR Gowtham</p>
+                </td>
+                <td>
+                    <p>2018</p>
+                </td>
+                <td>
+                <p>85</p>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                   <p>10+2</p>
+                </td>
+                <td>
+                    <p>N/A</p>
+                </td>
+                <td>
+                    <p>Narayana</p>
+                </td>
+                <td>
+                    <p>2020</p>
+                </td>
+                <td>
+                    <p>90</p>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>
+                    <p>B-Tech</p>
+                </td>
+                <td>
+                    <p>CSE</p>
+                </td>
+                <td>
+                    <p>Lovely Professional University</p>
+                </td>
+                <td>
+                    <p>2024</p>
+                </td>
+                <td>
+                    <p>85</p>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>
+                  
+                </td>
+                <td>
+                </td>
+                <td>
+    
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+       </div>
+
+    </div>
+
+
+
+    </div>
+</body>
+
+</html>

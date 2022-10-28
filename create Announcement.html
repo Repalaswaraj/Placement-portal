@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATE Announcement</title>
+    <script>
+        function submit() {
+            alert("Successfully Submitted");
+          window.close();
+        };
+    </script>
+    <style>
+        body{
+            background-color: moccasin;
+        }
+        .btn{
+            margin-left: 180px;
+            padding: 8px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <label for="for" ><strong>Announcement for:</strong></label>
+    <input type="checkbox" id="cse" name="cse">
+    <label for="cse" >CSE</label>
+    <input type="checkbox" id="ece" name="Ece">
+    <label for="ece">ECE</label>
+    <input type="checkbox" id="it" name="it">
+    <label for="it" >IT</label>
+    <input type="checkbox" id="eee" name="eee">
+    <label for="eee" >EEE</label>
+    <input type="checkbox" id="mech" name="mech">
+    <label for="mech" >MECH</label>
+    <input type="checkbox" id="agri" name="agri">
+    <label for="agri" >AGRICULTURE</label><br><br>
+    <label for="title"><strong>Title:</strong></label>
+    <input type="text" id="title" name="title"> <br>
+    <label for="announcement"><strong>Announcement:</strong></label><br>
+    <textarea id="Message" rows="20" cols="70"></textarea><br><br>
+    <label for="by"><strong>Uploaded By:</strong></label>
+    <input type="text" id="name" name="name"> <br><br>
+    <label for="by"><strong>Division:</strong></label>
+    <input type="text" id="name" name="name"> <br><br>
+    <button class="btn" onclick="submit()">Submit</button>
+    
+</body>
+</html>

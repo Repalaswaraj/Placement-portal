@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="icon" type="image" href="icon.ico">
+    <title>STUDENT LOGIN</title>
+  <head>
+  <style>
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+.bg-img{
+  background: url('image2.png');
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+.bg-img:after{
+  position: absolute;
+ 
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+  text-align: center;
+  padding: 60px 32px;
+  width: 370px;
+  transform: translate(-50%,-50%);
+  background: rgba(255,255,255,0.04);
+  box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
+}
+.field{
+  position: relative;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  background: rgba(255,255,255,0.94);
+}
+.field span{
+  color: #222;
+  width: 40px;
+  line-height: 45px;
+}
+.field input{
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #222;
+  font-size: 16px;
+  font-family: 'Poppins',sans-serif;
+}
+.pass{
+  text-align: center;
+  margin: 10px 0;
+}
+.pass a{
+  color: white;
+  text-decoration: none;
+  font-family: 'Poppins',sans-serif;
+}
+.pass:hover a{
+  color: red;
+  
+}
+.Done button{
+  background: #3498db;
+  border: 1px solid #2691d9;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  font: "Cambria";
+  padding: 12px;
+  width: 300px;
+}
+
+.Done a{
+  text-decoration: none;
+  color: black;
+}
+.signup{
+  font-size: 15px;
+  font-family: 'Poppins',sans-serif;
+}
+.signup a{
+  color: red;
+  text-decoration: none;
+}
+.signup a:hover{
+  color: green;
+  font-size: large;
+  background-color: white;
+}
+.Done a:hover{
+  color: white;  
+}
+
+
+</style>
+</head>
+    <body>
+      <div class="bg-img">
+        <div class="content">
+          <h1>Login Page</h1>
+          <br><br>
+
+          <form action="#">
+            <div class="field">
+              <span class="fa fa-user"></span>
+              <input type="text"  placeholder="User ID" required>
+            </div>
+            <br>
+          <div class="field space">
+              <span class="fa fa-lock"></span>
+              <input type="password" class="pass-key"  placeholder="Password" required>
+            </div><br><br>
+
+            <div class="Done">
+            <button><a href="Student Dash.html">Login</a></button> 
+            </div><br>
+
+            <div class="pass">
+              <p><a href="#">Forgot Password?</a></p> 
+            </div>
+
+          </form><br><br>
+          <div class="signup">
+            <p> <strong>Don't have  account?</strong>
+              <a href="registration form.html"><strong>Register Now</strong></a></p>
+           </div>
+        </div>
+      </div>
+    </body>
+</html>
